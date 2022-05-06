@@ -1,27 +1,63 @@
 package lesson16_HomeWork;
 
-public class HinhTru implements HinhHoc3D<Double>{
+public class HinhTru implements HinhHoc3D <Double>{
     private double h;
     private double r;
 
+    HinhTron ht = new HinhTron();
+
+    public HinhTru(){
+
+    }
+
     public HinhTru(double h, double r) {
         if (r <= 0 || h <= 0) {
-            throw new IllegalArgumentException("Khong hop le");
+            throw new RuntimeException("Khong hop le");
         }
         this.h = h;
         this.r = r;
     }
 
+    public double getH() {
+        return h;
+    }
+
+    public void setH(double h) {
+        if(h<=0) {
+            throw new RuntimeException("Khong hop le");
+        }
+        this.h = h;
+    }
+
+    public double getR() {
+        return r;
+    }
+
+    public void setR(double r) {
+        if(r<=0) {
+            throw new RuntimeException("Khong hop le");
+        }
+        this.r = r;
+    }
+
     @Override
     public Double tinhTheTich() {
-        return r*r*h*Math.PI;
+        return h*ht.tinhDienTich();
     }
 
     public double tinhDienTichXungQuanh(){
-        return 2*r*h*Math.PI;
+        return h*ht.tinhChuVi();
     }
 
     public double tinhDienTichToanPhan(){
-        return tinhDienTichXungQuanh()+2*r*r*Math.PI;
+        return tinhDienTichXungQuanh()+2*ht.tinhDienTich();
+    }
+
+    @Override
+    public String toString() {
+        return "HinhTru{" +
+                "h=" + h +
+                ", r=" + r +
+                '}';
     }
 }

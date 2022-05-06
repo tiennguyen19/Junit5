@@ -14,14 +14,14 @@ class HinhTronTest {
     @org.junit.jupiter.api.Test
     void tinhChuVi() {
         double expected = 3.217;
-        double actual = ht.tinhChuVi();
-            Assertions.assertEquals(expected, actual, 0.001);
+        double actual = Math.round(ht.tinhChuVi()*1000)/1000;
+            Assertions.assertEquals(expected, actual, 0.000001);
         }
 
     @org.junit.jupiter.api.Test
     void tinhDienTich() {
         double expected = 0.824;
-        double actual = ht.tinhDienTich();
-            Assertions.assertEquals(expected, actual, 0.001);
+        double actual = Math.round(ht.tinhDienTich()*1000)/1000;
+            Assertions.assertEquals(expected, actual, 0.000001);
     }
 }
