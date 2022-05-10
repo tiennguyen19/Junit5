@@ -2,7 +2,6 @@ package lesson16_HomeWork;
 
 public class HinhTru extends HinhTron implements HinhHoc3D <Double> {
     private double h;
-    HinhTron ht = new HinhTron();
 
     public HinhTru(double h) {
         if (h <= 0) {
@@ -32,14 +31,14 @@ public class HinhTru extends HinhTron implements HinhHoc3D <Double> {
 
     @Override
     public Double tinhTheTich() {
-        return h*ht.tinhDienTich();
+        return h*super.tinhDienTich();
     }
 
     public double tinhDienTichXungQuanh(){
-        return h*ht.tinhChuVi();
+        return h*super.tinhChuVi();
     }
 
     public double tinhDienTichToanPhan(){
-        return tinhDienTichXungQuanh()+2*ht.tinhDienTich();
+        return tinhDienTichXungQuanh()+2*super.tinhDienTich();
     }
 }
