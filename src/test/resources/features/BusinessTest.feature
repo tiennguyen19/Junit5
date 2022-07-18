@@ -60,9 +60,9 @@ Feature: Tinh tong chi phi cua khach hang
       | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
       | Jame   | FALSE  |            | 10/10/2021 | 499.99         | 349.99         | 849.98       |
 
-  Scenario Outline: khach hang khong phai thanh vien mua ca san pham va service AAA
-    Given Khach hang <MemberType> vua mua san pham vua dung service AAA
-    When Tinh tong <ServiceExpense> va <ProductExpense> AAA
+  Scenario Outline: khach hang khong phai thanh vien mua ca san pham va service BBBBB
+    Given Khach hang <MemberType> vua mua san pham vua dung service BBBBB
+    When Tinh tong <ServiceExpense> va <ProductExpense> BBBBB
     Then Tong chi phi bang <TotalExpense> AAA
     Examples:
       | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
