@@ -1,8 +1,8 @@
 package lesson19_HomeWork;
 
 public class Customer {
-    String name;
-    Boolean member=true;
+    private String name;
+    private Boolean member = true;
     static String memberType;
 
     public Customer(){}

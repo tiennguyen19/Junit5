@@ -1,8 +1,8 @@
 Feature: Tinh tong chi phi cua khach hang
 
-  Scenario Outline: khach hang la thanh vien
-    Given Khach hang <MemberType> chi mua san pham
-    When Tinh gia tri <ServiceExpense> va <ProductExpense> cua khach hang <MemberType>
+  Scenario Outline: khach hang la thanh vien chi mua san pham
+    Given Khach hang la <MemberType>
+    When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
 
     Examples:
@@ -11,8 +11,8 @@ Feature: Tinh tong chi phi cua khach hang
       | Jessica01  | TRUE   | GOLD       | 05/01/2022 |                | 155            | 139.5        |
       | Hiddleston | TRUE   | SILVER     | 10/10/2020 |                | 199            | 179.1        |
 
-  Scenario Outline: khach hang la thanh vien
-    Given Khach hang <MemberType> chi dung service
+  Scenario Outline: khach hang la thanh vien chi dung service
+    Given Khach hang la <MemberType>
     When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
 
@@ -23,8 +23,8 @@ Feature: Tinh tong chi phi cua khach hang
       | Jessica04 | TRUE   | SILVER     | 05/01/2022 | 799            |                | 719.1        |
 
 
-  Scenario Outline: khach hang la thanh vien
-    Given Khach hang <MemberType> vua mua san pham vua dung service
+  Scenario Outline: khach hang la thanh vien dùng cả sản phẩm và service
+    Given Khach hang la <MemberType>
     When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
 
@@ -34,8 +34,8 @@ Feature: Tinh tong chi phi cua khach hang
       | Emily      | TRUE   | PREMIUM    | 05/10/2021 | 799            | 567.99         | 1150.399     |
       | Hiddleston | TRUE   | SILVER     | 10/10/2020 | 789            | 199            | 889.2        |
 
-  Scenario Outline: khach hang khong phai thanh vien
-    Given Khach hang <MemberType> chi mua san pham
+  Scenario Outline: khach hang khong phai thanh vien chi mua san pham
+    Given Khach hang la <MemberType>
     When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
 
@@ -43,8 +43,8 @@ Feature: Tinh tong chi phi cua khach hang
       | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
       | Brian2 | FALSE  |            | 07/01/2022 |                | 860.99         | 860.99       |
 
-  Scenario Outline: khach hang khong phai thanh vien
-    Given Khach hang <MemberType> chi dung service
+  Scenario Outline: khach hang khong phai thanh vien chi dung service
+    Given Khach hang la <MemberType>
     When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
     Examples:
@@ -52,10 +52,18 @@ Feature: Tinh tong chi phi cua khach hang
       | Brian  | FALSE  |            | 07/01/2022 | 899.99         |                | 899.99       |
 
 
-  Scenario Outline: khach hang khong phai thanh vien
+  Scenario Outline: khach hang khong phai thanh vien mua ca san pham va service
     Given Khach hang <MemberType> vua mua san pham vua dung service
     When Tinh tong <ServiceExpense> va <ProductExpense>
     Then Tong chi phi bang <TotalExpense>
+    Examples:
+      | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
+      | Jame   | FALSE  |            | 10/10/2021 | 499.99         | 349.99         | 849.98       |
+
+  Scenario Outline: khach hang khong phai thanh vien mua ca san pham va service AAA
+    Given Khach hang <MemberType> vua mua san pham vua dung service AAA
+    When Tinh tong <ServiceExpense> va <ProductExpense> AAA
+    Then Tong chi phi bang <TotalExpense> AAA
     Examples:
       | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
       | Jame   | FALSE  |            | 10/10/2021 | 499.99         | 349.99         | 849.98       |

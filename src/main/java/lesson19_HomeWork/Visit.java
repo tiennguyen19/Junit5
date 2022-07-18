@@ -2,19 +2,18 @@ package lesson19_HomeWork;
 
 import java.util.Date;
 
-public class Visit extends Customer {
+public class Visit{
 
     Date date;
-    double serviceExpense;
-    double productExpense;
+    private double serviceExpense;
+    private double productExpense;
     Customer customer;
 
+    public Visit(){}
     public Visit(Date date, Customer customer) {
         this.date = date;
         this.customer = customer;
     }
-
-
 
     public Date getDate() {
         return date;
@@ -45,10 +44,11 @@ public class Visit extends Customer {
     }
 
     public double getTotalExpense(){
-        double productExpenseFinal = productExpense*(1-DiscountRate.getProductDiscountRate(customer.getMemberType()));
-        double serviceExpenseFinal = serviceExpense*(1-DiscountRate.getServiceDiscountRate(customer.getMemberType()));
+        double productExpenseFinal = getProductExpense()*(1-DiscountRate.getProductDiscountRate(customer.getMemberType()));
+        double serviceExpenseFinal = getServiceExpense()*(1-DiscountRate.getServiceDiscountRate(customer.getMemberType()));
         double totalExpense = productExpenseFinal + serviceExpenseFinal;
-        return Math.round(totalExpense*1000)/1000;
+        return totalExpense;
+        //return Math.round(totalExpense*1000)/1000;
     }
 
     @Override

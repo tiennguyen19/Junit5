@@ -1,30 +1,34 @@
 package lesson19_HomeWork;
 
-public class DiscountRate {
-    static double serviceDiscountPremium = 0.2;
-    static double serviceDiscountGold = 0.15;
-    static double serviceDiscountSilver = 0.1;
+import java.util.Locale;
 
-    static double productDiscountPremium = 0.1;
-    static double productDiscountGold = 0.1;
-    static double productDiscountSilver = 0.1;
+public class DiscountRate {
+    private static double serviceDiscountPremium = 0.2;
+    private static double serviceDiscountGold = 0.15;
+    private static double serviceDiscountSilver = 0.1;
+
+    private static double productDiscountPremium = 0.1;
+    private static double productDiscountGold = 0.1;
+    private static double productDiscountSilver = 0.1;
 
     private final Customer customer = new Customer();
     public static double getServiceDiscountRate(String type){
-      switch (type){
-          case "PREMIUM": return 0.2;
-          case "GOLD": return 0.15;
-          case "SILVER": return 0.1;
+        if (type == null) return 0;
+      switch (type.toUpperCase(Locale.ROOT)){
+          case "PREMIUM": return serviceDiscountPremium;
+          case "GOLD": return serviceDiscountGold;
+          case "SILVER": return serviceDiscountSilver;
+          default: return 0;
       }
-      return 0;
     }
 
     public static double getProductDiscountRate(String type) {
-        switch (type){
-            case "PREMIUM": return 0.1;
-            case "GOLD": return 0.1;
-            case "SILVER": return 0.1;
+        if (type == null) return 0;
+        switch (type.toUpperCase(Locale.ROOT)){
+            case "PREMIUM": return productDiscountPremium;
+            case "GOLD": return productDiscountGold;
+            case "SILVER": return productDiscountSilver;
+            default: return 0;
         }
-        return 0;
     }
 }
