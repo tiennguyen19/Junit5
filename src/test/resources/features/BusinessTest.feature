@@ -63,7 +63,7 @@ Feature: Tinh tong chi phi cua khach hang
   Scenario Outline: khach hang khong phai thanh vien mua ca san pham va service Test
     Given Khach hang <MemberType> vua mua san pham vua dung service CCCCC
     When Tinh tong <ServiceExpense> va <ProductExpense> CCCCC
-    Then Tong chi phi bang <TotalExpense> CCCCC Test
+    Then Tong chi phi bang <TotalExpense> CCCCC Test AAAAAAAAA
     Examples:
       | Name   | Member | MemberType | Date       | ServiceExpense | ProductExpense | TotalExpense |
       | Jame   | FALSE  |            | 10/10/2021 | 499.99         | 349.99         | 849.98       |
